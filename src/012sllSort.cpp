@@ -20,7 +20,26 @@ struct node {
 	int data;
 	struct node *next;
 };
-
-void sll_012_sort(struct node *head){
-	
+void sll_012_sort(struct node *head)
+{
+	node *p;
+	int swapped = 1;
+	if (head == NULL)
+		return;
+	while (swapped == 1)
+	{
+		p = head;
+		swapped = 0;
+		while (p->next != NULL)
+		{
+			if (p->data > p->next->data)
+			{
+				int temp = p->data;
+				p->data = p->next->data;
+				p->next->data = temp;
+				swapped = 1;
+			}
+			p = p->next;
+		}
+	}
 }
